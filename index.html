@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushanth | Engineering Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030712;
+            --accent-primary: #6366f1; 
+            --accent-secondary: #0ea5e9; 
+            --linkedin-color: #0077b5;
+            --github-color: #ffffff;
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+            --glass: rgba(17, 24, 39, 0.8);
+        }
+
+        /* Smooth Scroll Behavior */
+        html { scroll-behavior: smooth; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Space Grotesk', sans-serif; 
+            background-color: var(--bg); 
+            color: var(--text-main); 
+            line-height: 1.6;
+            background-image: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #030712 100%);
+            background-attachment: fixed;
+        }
+
+        /* STICKY NAVIGATION BAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--accent-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+        .nav-links a:hover { color: var(--accent-primary); text-shadow: 0 0 10px var(--accent-primary); }
+
+        /* HEADER & SECTIONS */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-name {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.3));
+        }
+
+        .highlight-socials { display: flex; gap: 20px; margin-top: 30px; }
+        .social-card {
+            padding: 12px 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.4s;
+            border: 1px solid transparent;
+        }
+        .li-card { background: rgba(0, 119, 181, 0.1); color: var(--linkedin-color); border-color: var(--linkedin-color); }
+        .li-card:hover { background: var(--linkedin-color); color: white; box-shadow: 0 0 20px rgba(0, 119, 181, 0.4); }
+        .gh-card { background: rgba(255, 255, 255, 0.05); color: var(--github-color); border-color: var(--github-color); }
+        .gh-card:hover { background: var(--github-color); color: black; box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); }
+
+        section { 
+            padding: 100px 10%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            scroll-margin-top: 80px; /* Prevents header covering section title */
+        }
+        
+        .glass-box {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        h2 { font-size: 2rem; margin-bottom: 30px; color: var(--accent-secondary); border-left: 4px solid var(--accent-primary); padding-left: 15px; }
+
+        /* SKILLS */
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .skill-card { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; }
+        .tag { display: inline-block; padding: 4px 12px; background: rgba(99, 102, 241, 0.1); border-radius: 6px; margin: 4px; font-size: 0.85rem; border: 1px solid rgba(99, 102, 241, 0.2); }
+
+        /* FORM */
+        .form-container { display: flex; flex-direction: column; gap: 15px; }
+        input, textarea {
+            width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: white;
+        }
+        .submit-btn {
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+            color: white; padding: 15px; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s;
+        }
+
+        footer { text-align: center; padding: 60px; color: var(--text-dim); }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; }
+            .nav-links { display: none; } /* Hide menu on mobile for cleanliness */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-logo">SUSHANTH.T</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <p style="letter-spacing: 5px; color: var(--accent-secondary);">ENGINEERING PORTFOLIO</p>
+        <h1 class="hero-name">Sushanth Thipparapu</h1>
+        <p class="text-dim">B.Tech Student | Kamalapur, Hanmakonda</p>
+        <div class="highlight-socials">
+            <a href="https://www.linkedin.com/in/thipparapu-sushanth-2272a335a/" class="social-card li-card" target="_blank">LinkedIn</a>
+            <a href="https://github.com/sushanth2143" class="social-card gh-card" target="_blank">GitHub</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="glass-box">
+            <h2>About Me</h2>
+            <p>I am an ambitious <strong>B.Tech student</strong> at <strong>SR University</strong>. My objective is to solve complex technical challenges and build high-performance systems for global MNCs. I specialize in backend development and structured problem-solving.</p>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="glass-box">
+            <h2>Academic Background</h2>
+            <h3>Bachelor of Technology (B.Tech)</h3>
+            <p style="color: var(--accent-secondary);">SR University, Warangal</p>
+            <p class="text-dim">Focusing on modern software engineering, computer architecture, and algorithm design.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Arsenal</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <h3>Languages</h3>
+                <span class="tag">C</span> <span class="tag">Python</span> <span class="tag">HTML5</span> <span class="tag">SQL</span>
+            </div>
+            <div class="skill-card">
+                <h3>Core CS Concepts</h3>
+                <span class="tag">DSA</span> <span class="tag">DBMS</span> <span class="tag">Operating Systems</span> <span class="tag">Networks</span>
+            </div>
+            <div class="skill-card">
+                <h3>Tools & Cloud</h3>
+                <span class="tag">Git</span> <span class="tag">GitHub</span> <span class="tag">VS Code</span> <span class="tag">DevOps Basics</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="glass-box" style="border-right: 4px solid var(--accent-secondary);">
+            <h3>FirstAid AI Bot</h3>
+            <p style="margin: 15px 0;">An intelligent medical assistance bot providing instant first-aid guidance through AI-driven logic.</p>
+            <a href="https://sushanth2143.github.io/firstaid/" target="_blank" class="submit-btn" style="text-decoration: none; display: inline-block; padding: 10px 20px;">Open Project</a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="glass-box">
+            <h2 style="text-align: center; border: none;">Get In Touch</h2>
+            <form action="https://formspree.io/f/thipparapusushanth1@email.com" method="POST" class="form-container">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+                <button type="submit" class="submit-btn">SEND MESSAGE</button>
+            </form>
+            <div style="margin-top: 30px; text-align: center; color: var(--text-dim);">
+                <p>📍 Resident of Kamalapur, Hanmakonda</p>
+                <p>📞 +91 9121034232</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>"Consistency is the bridge between goals and accomplishment."</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">&copy; 2025 Thipparapu Sushanth</p>
+    </footer>
+
+</body>
+</html>
